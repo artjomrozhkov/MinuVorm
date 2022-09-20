@@ -16,6 +16,8 @@ namespace WindowsFormsApp
         TreeView puu;
         Button nupp;
         Label label;
+        CheckBox aruut1, aruut2;
+        ProgressBar progress;
         public MinuOmaVorm()
         {
             Height = 600;
@@ -29,6 +31,7 @@ namespace WindowsFormsApp
             oksad.Nodes.Add(new TreeNode("Nupp-Button"));
             oksad.Nodes.Add(new TreeNode("Label"));
             oksad.Nodes.Add(new TreeNode("Checkbox"));
+            oksad.Nodes.Add(new TreeNode("Progressbar"));
 
 
 
@@ -40,13 +43,13 @@ namespace WindowsFormsApp
 
         private void Puu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Text=="Nupp-Button")
+            if (e.Node.Text == "Nupp-Button")
             {
                 nupp = new Button();
                 nupp.Text = "Vajuta siia";
                 nupp.Height = 30;
                 nupp.Width = 100;
-                nupp.Location= new Point(250, 240);
+                nupp.Location = new Point(250, 240);
                 nupp.Click += Nupp_Click;
                 nupp.AutoSize = true;
 
@@ -81,10 +84,91 @@ namespace WindowsFormsApp
             }
             else if (e.Node.Text == "Checkbox")
             {
+                Label l = new Label();
+                l.Text = "Select Gender:";
+                l.Location = new Point(500, 111);
+
+                this.Controls.Add(l);
+
+                aruut1 = new CheckBox();
+                aruut1.Height = 50;
+                aruut1.Width = 100;
+                aruut1.Location = new Point(500, 136);
+                aruut1.Text = "Male";
+
+                this.Controls.Add(aruut1);
+
+                aruut2 = new CheckBox();
+                aruut2.Height = 50;
+                aruut2.Width = 100;
+                aruut2.Location = new Point(500, 174);
+                aruut2.Text = "Female";
+
+
+                this.Controls.Add(aruut2);
+
+                aruut1.CheckedChanged += new EventHandler(aruut_1_2_Changed);
+                aruut2.CheckedChanged += new EventHandler(aruut_1_2_Changed);
+            }
+            else if (e.Node.Text == "Progressbar")
+            {
+                progress = new ProgressBar();
+                progress.Location = new System.Drawing.Point(20, 20);
+                progress.Name = "progressBar1";
+                progress.Width = 200;
+                progress.Height = 30;
+                progress.Dock = DockStyle.Bottom;
+                progress.Step = 1;
+                progress.Minimum = 0;
+                progress.Maximum = 100;
+                progress.Value = 70;
+
+
+                this.Controls.Add(progress);
+            }
+        }
+
+        private void aruut_1_2_Changed(object sender, EventArgs e)
+            {
+            if (aruut1.Checked && !aruut2.Checked)
+            {
+                DialogResult dialogResult = MessageBox.Show(
+            "Do you want to be male ?",
+            "Male",
+            MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+                {
+                    Process testing = Process.Start("https://en.wikipedia.org/wiki/Man");
+                }
 
             }
+            else if (!aruut1.Checked && aruut2.Checked)
+            {
+                DialogResult dialogResult = MessageBox.Show(
+            "Do you want to be female ?",
+            "Female",
+            MessageBoxButtons.YesNo);
 
+            if (dialogResult == DialogResult.Yes)
+                {
+                    Process testing = Process.Start("https://en.wikipedia.org/wiki/Woman");
+                }
+            }
+            else if (aruut1.Checked && aruut2.Checked)
+            {
+                DialogResult dialogResult = MessageBox.Show(
+            "Do you want to open my website ?",
+            "Website",
+            MessageBoxButtons.YesNo);
+            
+            if (dialogResult == DialogResult.Yes)
+                {
+                    Process testing = Process.Start("https://rozkov21.thkit.ee/");
+                }
+            }
         }
+
 
         private void Nupp_Click(object sender, EventArgs e)
         {
@@ -96,10 +180,6 @@ namespace WindowsFormsApp
             if (dialogResult == DialogResult.Yes)
             {
                 Process testing = Process.Start("https://rozkov21.thkit.ee/");
-            }
-            else
-            {
-                this.Close();
             }
         }
     }
