@@ -13,11 +13,15 @@ namespace WindowsFormsApp
 {
     public partial class MinuOmaVorm : Form
     {
+
+
+
         TreeView puu;
         Button nupp;
         Label label;
         CheckBox aruut1, aruut2;
         ProgressBar progress;
+        Timer aeg;
         public MinuOmaVorm()
         {
             Height = 600;
@@ -113,19 +117,27 @@ namespace WindowsFormsApp
             else if (e.Node.Text == "Progressbar")
             {
                 progress = new ProgressBar();
-                progress.Location = new System.Drawing.Point(20, 20);
+                progress.Location = new System.Drawing.Point(350, 500);
                 progress.Name = "progressBar1";
                 progress.Width = 200;
                 progress.Height = 30;
-                progress.Dock = DockStyle.Bottom;
+                //progress.Dock = DockStyle.Bottom;
                 progress.Step = 1;
                 progress.Minimum = 0;
                 progress.Maximum = 100;
-                progress.Value = 70;
+                progress.Value = 0;
 
 
                 this.Controls.Add(progress);
+                aeg = new Timer();
+                aeg.Enabled = true;
+                aeg.Tick += Aeg_Tick;
             }
+        }
+
+        private void Aeg_Tick(object sender, EventArgs e)
+        {
+            progress.PerformStep();
         }
 
         private void aruut_1_2_Changed(object sender, EventArgs e)
@@ -158,17 +170,17 @@ namespace WindowsFormsApp
             else if (aruut1.Checked && aruut2.Checked)
             {
                 DialogResult dialogResult = MessageBox.Show(
-            "Do you want to open my website ?",
+            "Do you want to be male and female ?",
             "Website",
             MessageBoxButtons.YesNo);
             
             if (dialogResult == DialogResult.Yes)
                 {
-                    Process testing = Process.Start("https://rozkov21.thkit.ee/");
+                    Process testing1 = Process.Start("https://en.wikipedia.org/wiki/Man");
+                    Process testing2 = Process.Start("https://en.wikipedia.org/wiki/Woman");
                 }
             }
         }
-
 
         private void Nupp_Click(object sender, EventArgs e)
         {
