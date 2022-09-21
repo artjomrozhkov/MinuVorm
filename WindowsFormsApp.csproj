@@ -52,6 +52,9 @@
     <Compile Include="MinuOmaVorm.Designer.cs">
       <DependentUpon>MinuOmaVorm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MinuVorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MinuOmaVorm.resx">
@@ -78,6 +81,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="abc.wav" />
+    <Content Include="abd.wav" />
+    <Content Include="abv.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

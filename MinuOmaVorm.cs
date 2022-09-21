@@ -22,6 +22,7 @@ namespace WindowsFormsApp
         CheckBox aruut1, aruut2;
         ProgressBar progress;
         Timer aeg;
+        TextBox tekst;
         public MinuOmaVorm()
         {
             Height = 600;
@@ -36,6 +37,10 @@ namespace WindowsFormsApp
             oksad.Nodes.Add(new TreeNode("Label"));
             oksad.Nodes.Add(new TreeNode("Checkbox"));
             oksad.Nodes.Add(new TreeNode("Progressbar"));
+            oksad.Nodes.Add(new TreeNode("Tekstkast-TextBox"));
+            oksad.Nodes.Add(new TreeNode("Omavorm"));
+
+
 
 
 
@@ -132,6 +137,34 @@ namespace WindowsFormsApp
                 aeg = new Timer();
                 aeg.Enabled = true;
                 aeg.Tick += Aeg_Tick;
+            }
+            else if (e.Node.Text == "Tekstkast-TextBox")
+            {
+                tekst = new TextBox
+                {
+                    Font = new Font("Arial", 34, FontStyle.Italic),
+                    Location = new Point(350, 400),
+                    Enabled = false
+                };
+                MouseDoubleClick += Tekst_MouseDoubleClick;
+                this.Controls.Add(tekst);
+            }
+            else if (e.Node.Text == "Omavorm")
+            {
+                MinuVorm oma = new MinuVorm("Kuulame muusikat", "Vajuta siia","Lil Skies - I");
+                oma.ShowDialog();
+            }
+        }
+
+        private void Tekst_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (tekst.Enabled)
+            {
+                tekst.Enabled = false;
+            }
+            else
+            {
+                tekst.Enabled = true;
             }
         }
 
