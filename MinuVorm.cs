@@ -65,7 +65,7 @@ namespace WindowsFormsApp
 
             if (vastus == DialogResult.Yes)
             {
-                using (var muusika = new SoundPlayer(@"..\..\abv.wav"))
+                using (var muusika = new SoundPlayer(@"..\..\abq.wav"))
                 {
                     muusika.Play();
                 }

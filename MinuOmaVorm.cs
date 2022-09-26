@@ -23,6 +23,7 @@ namespace WindowsFormsApp
         ProgressBar progress;
         Timer aeg;
         TextBox tekst;
+        RadioButton rnupp1, rnupp2, rnupp3, rnupp4;
         public MinuOmaVorm()
         {
             Height = 600;
@@ -39,6 +40,7 @@ namespace WindowsFormsApp
             oksad.Nodes.Add(new TreeNode("Progressbar"));
             oksad.Nodes.Add(new TreeNode("Tekstkast-TextBox"));
             oksad.Nodes.Add(new TreeNode("Omavorm"));
+            oksad.Nodes.Add(new TreeNode("Radionupp-Radiobutton"));
 
 
 
@@ -151,11 +153,10 @@ namespace WindowsFormsApp
             }
             else if (e.Node.Text == "Omavorm")
             {
-                MinuVorm oma = new MinuVorm("Kuulame muusikat", "Vajuta siia","Lil Skies - I");
+                MinuVorm oma = new MinuVorm("Kuulame muusikat", "Кнопка", "test");
                 oma.ShowDialog();
             }
         }
-
         private void Tekst_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (tekst.Enabled)

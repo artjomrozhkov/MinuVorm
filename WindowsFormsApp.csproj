@@ -85,6 +85,7 @@
   <ItemGroup>
     <Content Include="abc.wav" />
     <Content Include="abd.wav" />
+    <Content Include="abq.wav" />
     <Content Include="abv.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
