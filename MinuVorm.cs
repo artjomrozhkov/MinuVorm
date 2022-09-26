@@ -41,12 +41,42 @@ namespace WindowsFormsApp
                 BackColor = System.Drawing.Color.White,
             };
             failinimi1.Click += Failinimi1_Click;
+            
+            Label failinimi2 = new Label
+            {
+                Text = Fail,
+                Location = new System.Drawing.Point(50, 180),
+                Size = new System.Drawing.Size(100, 20),
+                BackColor = System.Drawing.Color.White,
+            };
+            failinimi2.Click += Failinimi2_Click;
 
 
             this.Controls.Add(nupp);
             this.Controls.Add(failinimi);
             this.Controls.Add(failinimi1);
+            this.Controls.Add(failinimi2);
         }
+        
+        private void Failinimi2_Click(object sender, EventArgs e)
+        {
+            Label fail_sender = (Label)sender;
+            var vastus = MessageBox.Show("Kas tahad muusikat kuulata?", "küsimus", MessageBoxButtons.YesNo);
+
+            if (vastus == DialogResult.Yes)
+            {
+                using (var muusika = new SoundPlayer(@"..\..\abv.wav"))
+                {
+                    muusika.Play();
+                }
+            }
+            else
+            {
+                MessageBox.Show(":(");
+            }
+        }
+        
+     
 
         private void Failinimi1_Click(object sender, EventArgs e)
         {
