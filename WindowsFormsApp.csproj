@@ -83,10 +83,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="abc.wav" />
-    <Content Include="abd.wav" />
-    <Content Include="abq.wav" />
-    <Content Include="abv.wav" />
+    <Content Include="butirka.wav" />
+    <Content Include="Coolio.wav" />
+    <Content Include="pchelka.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

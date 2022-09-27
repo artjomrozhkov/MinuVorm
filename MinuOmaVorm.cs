@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,8 @@ namespace WindowsFormsApp
         ProgressBar progress;
         Timer aeg;
         TextBox tekst;
-        RadioButton rnupp1, rnupp2, rnupp3, rnupp4;
+        RadioButton r1, r2, r3;
+        Button button;
         public MinuOmaVorm()
         {
             Height = 600;
@@ -40,7 +42,7 @@ namespace WindowsFormsApp
             oksad.Nodes.Add(new TreeNode("Progressbar"));
             oksad.Nodes.Add(new TreeNode("Tekstkast-TextBox"));
             oksad.Nodes.Add(new TreeNode("Omavorm"));
-            oksad.Nodes.Add(new TreeNode("Radionupp-Radiobutton"));
+
 
 
 
@@ -153,10 +155,25 @@ namespace WindowsFormsApp
             }
             else if (e.Node.Text == "Omavorm")
             {
-                MinuVorm oma = new MinuVorm("Kuulame muusikat", "Кнопка", "test");
+                MinuVorm oma = new MinuVorm("Kuulame muusikat");
                 oma.ShowDialog();
             }
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "MinuOmaVorm";
+            this.Load += new System.EventHandler(this.MinuOmaVorm_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void MinuOmaVorm_Load(object sender, EventArgs e)
+        {
+        }
+
         private void Tekst_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (tekst.Enabled)
